@@ -6,18 +6,17 @@ import requests
 
 
 def getInfo(URL):
-    response = requests.get(URL)
-    soup = BeautifulSoup(response.content, "html.parser" )
-    # print(soup.find('title'.string))
-    return(soup.find('title').string)
-    # article = Article(URL, language="en")
-    # try: 
-    #     article.download()
-    #     article.parse()
-    #     return article.text, article.top_image, article.publish_date, article.title
-    # except:
-    #     print("error")
-    #     return 'a','a','a','a'
+    # response = requests.get(URL)
+    # soup = BeautifulSoup(response.content, "html.parser" )
+    # return(soup.find('title').string)
+    article = Article(URL, language="en")
+    try: 
+        article.download()
+        article.parse()
+        return article.text, article.top_image, article.publish_date, article.title
+    except:
+        print("error")
+        return 'a','a','a','a'
 
 
     # print(article.title)
@@ -52,8 +51,8 @@ def getMeResult(query):
     # print(links)
     for url in links:
         # print(getInfo(url))
-        title = getInfo(url)
-        res = {'url': url,'title': title}
+        text, img, date, title = getInfo(url)
+        res = {'url': url,'text': text, 'image':img, 'date':date, 'title': title}
         info.append(res)    
     return info
 
