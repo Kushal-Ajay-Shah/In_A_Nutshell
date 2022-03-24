@@ -32,7 +32,7 @@ def getSummary(input):
     # print("DE-EMOJIFY: ",input)
     # encode the text into tensor of integers using the tokenizer
     inputs = t5_tokenizer.encode("summarize: " + input, return_tensors="pt", max_length=512, padding="max_length", truncation=True)
-    summary_ids = t5_model.generate(inputs, num_beams=int(2), no_repeat_ngram_size=3, length_penalty=2, min_length=120, max_length=150, early_stopping=True)
+    summary_ids = t5_model.generate(inputs, num_beams=int(2), no_repeat_ngram_size=3, length_penalty=2, min_length=120, max_length=300, early_stopping=True)
     output = t5_tokenizer.decode(summary_ids[0], skip_special_tokens=True, clean_up_tokenization_spaces=True)
     # print(summary_ids)
     # print(output)
