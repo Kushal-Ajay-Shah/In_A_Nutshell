@@ -50,7 +50,7 @@ def getMeResult(query):
     info = []
     # print(links)
     # print(links)
-    for url in links[:10]:
+    for url in links[:5]:
         # print(getInfo(url))
         text, img, date, title = getInfo(url)
         res = {'url': url,'text': text, 'image':img, 'date':date, 'title': title}
