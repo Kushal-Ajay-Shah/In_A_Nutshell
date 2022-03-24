@@ -1,4 +1,5 @@
 from ast import keyword
+# from crypt import methods
 from distutils.log import debug
 from flask import Flask, render_template, redirect, request, url_for
 from googlesearch import search
@@ -23,11 +24,14 @@ def getInfo():
         # print("summary:",s)
         # titles = [r['title'] for r in res]
         # print("\n".join(titles))
-        return render_template('cards.html', result = res)
+        return render_template('cards.html', res = res)
 
-@app.route('/load')
-def loading():
-    return render_template('loading.html')
+@app.route('/summarize', methods = ['POST', 'GET'])
+def summarize():
+    if request.method == 'POST':
+        checkedIndices = request.form.getlist('my_checkbox')
+        print(checkedIndices)
+        return "\n".join(checkedIndices)
      
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
