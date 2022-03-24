@@ -11,11 +11,11 @@ function shuffleArray(array) {
   }
   return array;
 }
-$(document).ready(function () {
-  setTimeout(function () {
-    $("body").addClass("loaded");
-  }, 15000);
-});
+// $(document).ready(function () {
+//   setTimeout(function () {
+//     $("body").addClass("loaded");
+//   }, 15000);
+// });
 function createSVG(tag, properties, opt_children) {
   var newElement = document.createElementNS("http://www.w3.org/2000/svg", tag);
   for (prop in properties) {
@@ -28,7 +28,7 @@ function createSVG(tag, properties, opt_children) {
   }
   return newElement;
 }
-console.log("hello");
+// console.log("hello");
 function createPhraseSvg(phrase, yOffset) {
   var text = createSVG("text", {
     fill: "white",
@@ -142,5 +142,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
       requestAnimationFrame(animateLoading);
     }
   }
-  //animateLoading();
+  animateLoading();
 });

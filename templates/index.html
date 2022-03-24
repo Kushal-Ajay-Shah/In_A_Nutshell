@@ -17,9 +17,19 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/loading.css') }}"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/loading.js') }}"
+    ></script>
   </head>
-  <body>
-    <form class="search" method="post" action="/ip">
+  <body class="loaded">
+    <form class="search" method="post" action="/ip" onsubmit="load()">
       <input type="checkbox" id="toggleSearch" class="search__toggle" hidden />
       <div class="search__field">
         <label for="toggleSearch" class="search__label">
@@ -43,5 +53,64 @@
         </label>
       </div>
     </form>
+
+    <div id="loader-wrapper">
+      <div id="page">
+        <div id="phrase_box">
+          <svg width="100%" height="100%">
+            <defs>
+              <style type="text/css">
+                @font-face {
+                  font-family: "Proxima";
+                  src: url("");
+                }
+              </style>
+              <mask
+                id="mask"
+                maskUnits="userSpaceOnUse"
+                maskContentUnits="userSpaceOnUse"
+              >
+                <linearGradient
+                  id="linearGradient"
+                  gradientUnits="objectBoundingBox"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop stop-color="white" stop-opacity="0" offset="0%" />
+                  <stop stop-color="white" stop-opacity="1" offset="30%" />
+                  <stop stop-color="white" stop-opacity="1" offset="70%" />
+                  <stop stop-color="white" stop-opacity="0" offset="100%" />
+                </linearGradient>
+                <rect width="100%" height="100%" fill="url(#linearGradient)" />
+              </mask>
+            </defs>
+            <g width="100%" height="100%" style="mask: url(#mask)">
+              <g id="phrases"></g>
+            </g>
+          </svg>
+        </div>
+        <div id="ighex">
+          <div class="preloader loading">
+            <span class="slice"></span>
+            <span class="slice"></span>
+            <span class="slice"></span>
+            <span class="slice"></span>
+            <span class="slice"></span>
+            <span class="slice"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function load() {
+        console.log("load");
+        document.querySelector("body").removeAttribute("class");
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/loading.js') }}"
+    ></script>
   </body>
 </html>
