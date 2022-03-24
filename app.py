@@ -18,12 +18,16 @@ def getInfo():
         keyword = request.form['keyword']
         res = getMeResult(keyword)
         # print(res)
-        s = getSummary(res[2]['text'])
-        print("text: ",res[2]['text'])
-        print("summary:",s)
-        titles = [r['title'] for r in res]
+        # s = getSummary(res[2]['text'])
+        # print("text: ",res[2]['text'])
+        # print("summary:",s)
+        # titles = [r['title'] for r in res]
         # print("\n".join(titles))
-        return "\n".join(titles)
+        return render_template('cards.html', result = res)
+
+@app.route('/load')
+def loading():
+    return render_template('loading.html')
      
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
