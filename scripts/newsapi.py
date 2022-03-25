@@ -14,7 +14,17 @@ from tkinter import NE
 import requests    
 from bs4 import BeautifulSoup
 
- 
+def clean(list):
+    newList=[]
+    for dict in list:
+        newdict={}
+        newdict['url']=dict['url']
+        newdict['text']=dict['content']
+        newdict['image']=dict['urlToImage']
+        newdict['title']=dict['title']
+        newdict['date']=dict['publishedAt']
+        newList.append(newdict)
+    return newList
 def NewsApi(keyword='',searchIn='',sources='',fromdate='',todate='',language='',sortBy='relevancy') :
     articlesarr = []
     query_params = {
