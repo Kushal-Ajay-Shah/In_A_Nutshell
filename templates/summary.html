@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/summary.css" />
+    <title>Summary</title>
+  </head>
+  <body>
+    <div class="grid" >
+      {% for res in resl %}
+
+      <div class="grid__item">
+        <div class="card">
+          <img
+            class="card__img"
+            src= {{res.image}}
+            alt="Snowy Mountains"
+          />
+          <div class="card__content">
+            <div class="card__header">
+                {{res.title}}
+            </div>
+            <div class="card__text">
+              {{res.summary}}
+                <button class="card__btn"><a href={{res.url}}>Explore</a> <span>&rarr;</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+ </body>
+</html>

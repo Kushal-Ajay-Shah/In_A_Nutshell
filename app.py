@@ -21,6 +21,8 @@ def getInfo():
    if request.method == 'POST':
         keyword = request.form['keyword']
         res = getMeResult(keyword)
+        global resl
+        resl = res
         # print(res)
         # s = getSummary(res[2]['text'])
         # print("text: ",res[2]['text'])
@@ -32,11 +34,17 @@ def getInfo():
 @app.route('/summarize', methods = ['POST', 'GET'])
 def summarize():
     if request.method == 'POST':
+        finalres = []   
         checkedIndices = request.form.getlist('my_checkbox')
-        articleNum = int(checkedIndices[0])
-        global resl
-        summary = getSummary(resl[articleNum]['text'])
-        return summary
+        for index in checkedIndices:
+            articleNum = int(index)
+            print(articleNum)
+            global resl
+            print(resl)
+            resl[articleNum]['summary'] = getSummary(resl[articleNum]['text'])
+            finalres.append(resl[articleNum])
+        return render_template('summary.html', resl = finalres)
+
      
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
