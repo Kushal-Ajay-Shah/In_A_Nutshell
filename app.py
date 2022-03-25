@@ -10,6 +10,7 @@ from scripts.t5_summary import getSummary
 from jinja2 import Template
 from scripts.newsapi import NewsApi
 from scripts.newsapi import clean
+from scripts.article_similarity import documentSimilarity
 
 app = Flask(__name__)
 
@@ -39,13 +40,35 @@ def getInfo():
 
 @app.route('/summarize', methods = ['POST', 'GET'])
 def summarize():
+    similarity_threshold = 0.7
     if request.method == 'POST':
         finalres = []   
         checkedIndices = request.form.getlist('my_checkbox')
-        for index in checkedIndices:
-            articleNum = int(index)
+        uniqueIndices = []
+        global resl
+        # print("resl length: ",len(resl))
+        for i in range(len(checkedIndices)):
+            index_i = int(checkedIndices[i])
+            flag = True
+            if i==len(checkedIndices)-1:
+                uniqueIndices.append(int(checkedIndices[i]))
+                break
+            for j in range(i+1,len(checkedIndices)):
+                index_j = int(checkedIndices[j])
+                data_i = resl[index_i]['text']
+                data_j = resl[index_j]['text']
+                sim_ij = documentSimilarity(data_i, data_j)
+                # print("Similarity {} and {}: {}".format(i,j,sim_ij))
+                if sim_ij >= similarity_threshold:
+                    flag = False
+                    break
+            if flag:
+                uniqueIndices.append(index_i)
+        # print("checked: ",checkedIndices)
+        # print("unique: ",uniqueIndices)
+        for index in uniqueIndices:
+            articleNum = index
             print(articleNum)
-            global resl
             resl[articleNum]['summary'] = getSummary(resl[articleNum]['text'])
             finalres.append(resl[articleNum])
 
@@ -53,4 +76,4 @@ def summarize():
 
      
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    app.run(debug=True)
