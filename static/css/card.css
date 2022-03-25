@@ -58,7 +58,7 @@ body {
   object-fit: cover;
 }
 .card__content {
-  background-color: #0099ff;
+  background-color: white;
   opacity: 0.5;
   padding: 3rem 3rem;
 }

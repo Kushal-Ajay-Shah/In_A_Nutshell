@@ -36,28 +36,28 @@
     <div class="loaded">
     <form class="grid" action = "/summarize" method="POST" >
       <button type="submit" class="card__btn" id="submit" onclick="load()" class="loaded">Get Summary</button>
-        {% for i in range(reslength) %}
+        <!-- {% for i in range(reslength) %} -->
       <div class="grid__item" class="loaded">
         <div class="card">
           <img
             class="card__img"
-            src= {{res[i].image}}
+            src=""
             alt="Snowy Mountains"
           />
           <div class="card__content" class="loaded">
-            <div class="card__header">{{ res[i].title }}</div>
+            <div class="card__header">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, dolor.</div>
             <div class="card__text">
               
               <div class="form-group" class="loaded">
-                <input type="checkbox" id={{res[i].url}} name = "my_checkbox" value = {{i}}>
-                <label for={{res[i].url}}><button class="card__btn"><a href={{ res[i].url }}>Explore</a> <span>&rarr;</span></button></label>
+                <input type="checkbox" id="i" name = "my_checkbox" value = {{i}}>
+                <label for="i"><button class="card__btn"><a href={{ res[i].url }}>Explore</a> <span>&rarr;</span></button></label>
               </div>           
 
             </div>
           </div>
         </div>
       </div>
-      {% endfor %}
+      <!-- {% endfor %} -->
     </div>
     </form>
   </div>
