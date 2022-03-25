@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/style2.css" />
+    <title>Card</title>
+  </head>
+  <body>
+    <form class="grid" action = "/summarize" method="POST">
+      <button type="submit" class="card__btn" id="submit">Get Summary</button>
+        {% for i in range(5) %}
+      <div class="grid__item">
+        <div class="card">
+          <img
+            class="card__img"
+            src= {{res[i].image}}
+            alt="Snowy Mountains"
+          />
+          <div class="card__content">
+            <div class="card__header">{{ res[i].title }}</div>
+            <div class="card__text">
+              
+              <div class="form-group">
+                <input type="checkbox" id={{res[i].url}} name = "my_checkbox" value = {{i}}>
+                <label for={{res[i].url}}><button class="card__btn"><a href={{ res[i].url }}>Explore</a> <span>&rarr;</span></button></label>
+              </div>           
+
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>
