@@ -38,7 +38,7 @@ function createPhraseSvg(phrase, yOffset) {
     "font-family": "Arial",
   });
   text.appendChild(document.createTextNode(phrase + "..."));
-  console.log(text);
+  // console.log(text);
   return text;
 }
 function createCheckSvg(yOffset, index) {
@@ -82,11 +82,17 @@ function addPhrasesToDocument(phrases) {
 }
 
 function easeInOut(t) {
-  var period = 200;
+  var period = 300;
   return (Math.sin(t / period + 100) + 1) / 2;
 }
-
-document.addEventListener("DOMContentLoaded", function (event) {
+function load() {
+  console.log("load");
+  document.querySelector("body").removeAttribute("class");
+  loadText();
+}
+function loadText() {
+  
+  console.log("load2");
   var phrases = shuffleArray([
     "Connecting to server",
     "Grabbing articles",
@@ -101,21 +107,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
   ]);
   addPhrasesToDocument(phrases);
   var start_time = new Date().getTime();
+  console.log("start time");
+  console.log(start_time);
+  
   var upward_moving_group = document.getElementById("phrases");
-  upward_moving_group.currentY = 0;
+  upward_moving_group.currentY = 200;
   var checks = phrases.map(function (_, i) {
     return {
       check: document.getElementById(checkmarkIdPrefix + i),
       circle: document.getElementById(checkmarkCircleIdPrefix + i),
     };
   });
+  console.log(upward_moving_group);
   function animateLoading() {
+
+
+    // console.log("starting animation");
+
     var now = new Date().getTime();
+
+    // console.log("now",now);
+
     upward_moving_group.setAttribute(
       "transform",
       "translate(0 " + upward_moving_group.currentY + ")"
     );
+    // console.log(upward_moving_group.currentY)
     upward_moving_group.currentY -= 1.35 * easeInOut(now);
+    console.log(upward_moving_group.currentY)
     checks.forEach(function (check, i) {
       var color_change_boundary = -i * verticalSpacing + verticalSpacing + 15;
       if (upward_moving_group.currentY < color_change_boundary) {
@@ -138,9 +157,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
         );
       }
     });
-    if (now - start_time < 30000 && upward_moving_group.currentY > -710) {
+    if (upward_moving_group.currentY < -200){
+      upward_moving_group.currentY = 100;
+      start_time = new Date().getTime();
+    }
+    if (now - start_time < 300000 && upward_moving_group.currentY > -710) {
       requestAnimationFrame(animateLoading);
     }
   }
+  start_time = new Date().getTime();
   animateLoading();
-});
+}

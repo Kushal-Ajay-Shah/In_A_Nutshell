@@ -1,6 +1,7 @@
 from ast import keyword
 # from crypt import methods
 from distutils.log import debug
+from nntplib import ArticleInfo
 from flask import Flask, render_template, redirect, request, url_for
 from googlesearch import search
 from scripts.search import getMeResult 
@@ -8,6 +9,8 @@ from scripts.t5_summary import getSummary
 from jinja2 import Template
 
 app = Flask(__name__)
+
+resl = []
 
 @app.route("/")
 def main():
@@ -30,8 +33,10 @@ def getInfo():
 def summarize():
     if request.method == 'POST':
         checkedIndices = request.form.getlist('my_checkbox')
-        print(checkedIndices)
-        return "\n".join(checkedIndices)
+        articleNum = int(checkedIndices[0])
+        global resl
+        summary = getSummary(resl[articleNum]['text'])
+        return summary
      
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
