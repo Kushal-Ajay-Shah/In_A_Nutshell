@@ -19,7 +19,7 @@ def getInfo(URL):
         return 'a','a','a','a'
 
 
-    # print(article.title)
+    print(article.title)
 
 
 # def getMeResult(searchQuery):
@@ -48,6 +48,7 @@ def getMeResult(query):
     # for l in links: 
     #     print(l)
     info = []
+    # print(links)
     # print(links)
     for url in links[:5]:
         # print(getInfo(url))
