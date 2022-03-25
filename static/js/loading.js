@@ -142,5 +142,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       requestAnimationFrame(animateLoading);
     }
   }
-  animateLoading();
+  for(var i=0;i<100;i++){
+    animateLoading();
+  }
 });
