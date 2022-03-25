@@ -10,6 +10,7 @@ from scripts.t5_summary import getSummary
 from jinja2 import Template
 from scripts.newsapi import NewsApi
 from scripts.newsapi import clean
+from scripts.docupload import getText
 from scripts.article_similarity import documentSimilarity
 
 app = Flask(__name__)
@@ -17,7 +18,7 @@ app = Flask(__name__)
 resl = []
 @app.route("/")
 def main():
-    return render_template('index.html')
+    return render_template('home.html')
 
 @app.route('/ip',methods = ['POST', 'GET'])
 def getInfo():
@@ -73,6 +74,25 @@ def summarize():
             finalres.append(resl[articleNum])
 
         return render_template('summary.html', resl = finalres)
+
+@app.route('/offline',methods = ['POST','GET'])
+def offline() :
+    if request.method == 'POST' :
+        if 'file' not in request.files:
+            return 'No file found'
+        file = request.files['file']
+        if file.filename == '':
+            return 'No selected file'
+        
+        text = getText(file)
+        print(type(text))
+        summary = getSummary(text)
+        print(summary)
+        return render_template('uploadSummary.html',summary = summary)
+        # return "success"
+
+
+    return 'failed'
 
      
 if __name__ == "__main__":

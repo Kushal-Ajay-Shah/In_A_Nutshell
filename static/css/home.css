@@ -26,9 +26,6 @@ body {
   display: block;
 }
 
-.sect--grey {
-  /*background-color: #ebeff9;*/
-}
 
 .sect--violet {
   background-color: #6f79ff;
@@ -41,10 +38,10 @@ body {
 .sect--padding-top {
   padding-top: 90px;
 }
-
+/* 
 .sect--white {
-  /* background-color:#fff;*/
-}
+  background-color:#fff;
+} */
 .row--center {
   max-width: 1000px;
   margin: 0 auto;
@@ -295,9 +292,9 @@ body {
   width: 25px;
   margin-right: 10px;
 }
-
+/* 
 .carousel {
-}
+} */
 
 .row__carousel {
   display: inline-block;
