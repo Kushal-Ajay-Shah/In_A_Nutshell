@@ -1,10 +1,11 @@
 from ast import keyword
 # from crypt import methods
 from distutils.log import debug
+from time import sleep
 from flask import Flask, render_template, redirect, request, url_for
 from googlesearch import search
 from scripts.search import getMeResult 
-from scripts.t5_summary import getSummary
+#from scripts.t5_summary import getSummary
 from jinja2 import Template
 
 app = Flask(__name__)
@@ -30,6 +31,7 @@ def getInfo():
 def summarize():
     if request.method == 'POST':
         checkedIndices = request.form.getlist('my_checkbox')
+        sleep(100)
         print(checkedIndices)
         return "\n".join(checkedIndices)
      
