@@ -25,23 +25,13 @@ def getInfo():
    if request.method == 'POST':
         keyword = request.form['keyword']
         res = getMeResult(keyword)
-        # newsapires= NewsApi(keyword)
-        # newsapires = clean(newsapires)
-        # print(newsapires[0])
+        newsapires= NewsApi(keyword)
+        newsapires = clean(newsapires)
         fin=[]
-        # count = 0
-        # for i in res :
-        #     if count >= 5 :
-        #         break
-        #     if len(i['title']) == 1 :
-        #         continue
-        #     else :
-        #         fin.append(i)
-        #         count+=1
         for i in range(min(5,len(res))):
             fin.append(res[i])
-        # for i in range(min(5,len(newsapires))):
-        #     fin.append(newsapires[i])
+        for i in range(min(5,len(newsapires))):
+            fin.append(newsapires[i])
         
         global resl
         resl = fin

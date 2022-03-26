@@ -20,6 +20,10 @@ body {
   background-color: #f5f5f5;
   font-family: "Inter", sans-serif;
   text-decoration: none;
+  background-image: url("https://image.ibb.co/de6JzG/bitmap_1_1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 
 }
 @media (max-width: 60em) {
@@ -28,6 +32,9 @@ body {
   }
 }
 
+button,a{
+  text-decoration: none;
+}
 .grid {
   display: flex;
   width: 114rem;
