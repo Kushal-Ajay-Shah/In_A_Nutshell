@@ -27,8 +27,17 @@ def getInfo():
         res = getMeResult(keyword)
         newsapires= NewsApi(keyword)
         newsapires = clean(newsapires)
-        print(newsapires[0])
+        # print(newsapires[0])
         fin=[]
+        # count = 0
+        # for i in res :
+        #     if count >= 5 :
+        #         break
+        #     if len(i['title']) == 1 :
+        #         continue
+        #     else :
+        #         fin.append(i)
+        #         count+=1
         for i in range(min(5,len(res))):
             fin.append(res[i])
         for i in range(min(5,len(newsapires))):
@@ -59,7 +68,7 @@ def summarize():
                 data_i = resl[index_i]['text']
                 data_j = resl[index_j]['text']
                 sim_ij = documentSimilarity(data_i, data_j)
-                # print("Similarity {} and {}: {}".format(i,j,sim_ij))
+                print("Similarity {} and {}: {}".format(i,j,sim_ij))
                 if sim_ij >= similarity_threshold:
                     flag = False
                     break
@@ -72,8 +81,10 @@ def summarize():
             print(articleNum)
             resl[articleNum]['summary'] = getSummary(resl[articleNum]['text'])
             finalres.append(resl[articleNum])
+            print(len(finalres))
+            print(finalres)
 
-        return render_template('summary.html', resl = finalres)
+        return render_template('summary.html', resl = finalres , reslength = len(finalres))
 
 @app.route('/offline',methods = ['POST','GET'])
 def offline() :
