@@ -61,7 +61,7 @@ def vector_angle(D1, D2):
     numerator = dotProduct(D1, D2)
     denominator = math.sqrt(dotProduct(D1, D1)*dotProduct(D2, D2))
       
-    return math.acos(numerator / denominator)
+    return numerator / denominator
 
 def documentSimilarity(data_1, data_2):
       

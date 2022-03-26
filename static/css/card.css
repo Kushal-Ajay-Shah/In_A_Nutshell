@@ -135,7 +135,7 @@ body {
   content: "";
   -webkit-appearance: none;
   background-color: transparent;
-  border: 2px solid white;
+  border: 2px solid rgb(172, 35, 35);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05),
     inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
   padding: 10px;
@@ -156,7 +156,7 @@ body {
   left: 9px;
   width: 6px;
   height: 14px;
-  border: solid white;
+  border: solid rgb(57, 13, 68);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
