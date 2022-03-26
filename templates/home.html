@@ -1,120 +1,162 @@
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="https://www.clipartmax.com/png/middle/272-2725528_walnut-nutshell-icons-set-stock-illustration-nutshell-icon.png"
-    />
-    <meta name="theme-color" content="#1885ed" />
-    <title>In a Nutshell</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../static/css/home.css" />
-    <link rel="stylesheet" href="../static/css/style.css" />
-  </head>
-  
-  <body>
-    <header class="header">
-      <div class="container header__container">
-        <div class="header__logo">
-          <!-- <img
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="shortcut icon"
+    type="image/x-icon"
+    href="https://www.clipartmax.com/png/middle/272-2725528_walnut-nutshell-icons-set-stock-illustration-nutshell-icon.png"
+  />
+  <meta name="theme-color" content="#1885ed" />
+  <title>In a Nutshell</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="../static/css/home.css" />
+  <link rel="stylesheet" href="../static/css/style.css" />
+  <link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/loading2.css') }}"
+/>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__container">
+      <div class="header__logo">
+        <!-- <img
             class="header__img"
             src="https://image.ibb.co/kcVou6/path3000.png"
           /> -->
-          <div class="header_img">
-              <div class="search__icon"></div>
-          </div>
-  
-          <h1 class="header__title">
-            In a <span class="header__light">Nutshell</span>
-          </h1>
+        <div class="header_img">
+          <div class="search__icon"></div>
         </div>
-        <button
-          type="button"
-          class="navbar-toggle collapsed"
-          data-toggle="collapse"
-          data-target="#navbar"
-          aria-expanded="false"
-          aria-controls="navbar"
-        >
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-  
-        <div class="header__menu">
-          <nav id="navbar" class="header__nav collapse">
-            <ul class="header__elenco">
-              <li class="header__el">
-                <a href="#" class="header__link">Home</a>
-              </li>
-              
-              <!-- <li class="header__el header__el--blue">
+
+        <h1 class="header__title">
+          In a <span class="header__light">Nutshell</span>
+        </h1>
+      </div>
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        data-toggle="collapse"
+        data-target="#navbar"
+        aria-expanded="false"
+        aria-controls="navbar"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div class="header__menu">
+        <nav id="navbar" class="header__nav collapse">
+          <ul class="header__elenco">
+            <li class="header__el">
+              <a href="#" class="header__link">Home</a>
+            </li>
+
+            <!-- <li class="header__el header__el--blue">
                 <a href="" class="btn btn--white">Sign In →</a>
               </li> -->
-            </ul>
-          </nav>
-        </div>
+          </ul>
+        </nav>
       </div>
-    </header>
-
-  <div class="sect sect--padding-top">
-    <div class="container">
-        <div class="col-md-12" style="margin-bottom: 5em;">
-
-            <h1 class="site__title">Fast paced way to get information highlights</h1>
+    </div>
+  </header>
+  <div class="">
+    <div class="sect sect--padding-top">
+      <div class="container">
+        <div class="col-md-12" style="margin-bottom: 5em">
+          <h1 class="site__title">
+            Fast paced way to get information highlights
+          </h1>
         </div>
 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="site">
-            <h2 class="site__subtitle">Search Here & Get Summary</h2>
-            <div class="site__box-link">
-                <form class="search" method="post" action="/ip" >
-                    <input type="checkbox" id="toggleSearch" class="search__toggle" hidden />
-                    <div class="search__field">
-                      <label for="toggleSearch" class="search__label" class="loaded">
-                        <span class="search__close"></span>
-                      </label>
-                      <input
-                        type="text"
-                        class="search__input"
-                        placeholder="What are you looking for?"
-                        name="keyword"
-                        autocomplete="off"
+        <div class="row">
+          <div class="col-md-6">
+            <div class="site">
+              <h2 class="site__subtitle">Search Here & Get Summary</h2>
+              <div class="site__box-link">
+                <form
+                  class="search"
+                  method="post"
+                  action="/ip"
+                  onclick="load()"
+                >
+                  <input
+                    type="checkbox"
+                    id="toggleSearch"
+                    class="search__toggle"
+                    hidden
+                  />
+                  <div class="search__field">
+                    <label
+                      for="toggleSearch"
+                      class="search__label"
+                      class="loaded"
+                    >
+                      <span class="search__close"></span>
+                    </label>
+                    <input
+                      type="text"
+                      class="search__input"
+                      placeholder="What are you looking for?"
+                      name="keyword"
+                      autocomplete="off"
+                      class="loaded"
+                    />
+                    <!-- <p><input type="submit" value="submit" /></p> -->
+                    <label
+                      for="toggleSearch"
+                      class="search__label"
+                      class="loaded"
+                    >
+                      <div class="search__button" class="loaded">
+                        <div class="search__icon search__button--toggle"></div>
+                      </div>
+                      <button
+                        class="search__button search__button--submit"
                         class="loaded"
-                      />
-                      <!-- <p><input type="submit" value="submit" /></p> -->
-                      <label for="toggleSearch" class="search__label" class="loaded">
-                        <div class="search__button" class="loaded">
-                          <div class="search__icon search__button--toggle"></div>
-                        </div>
-                        <button class="search__button search__button--submit" class="loaded">
-                          <div class="search__icon"></div>
-                        </button>
-                      </label>
-                    </div>
-                  </form>
-              <!-- <a class="btn btn--width" href="">Pricing</a>
+                      >
+                        <div class="search__icon"></div>
+                      </button>
+                    </label>
+                  </div>
+                </form>
+                <!-- <a class="btn btn--width" href="">Pricing</a>
               <a class="btn btn--revert btn--width" href="">Contact</a> -->
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="site">
-            <h2 class="site__subtitle">Upload your text file here to get the summary</h2>
-            <div class="site__box-link">
-                
-                <form action="/offline" method="post" enctype = "multipart/form-data">
-              <div class="btn btn--width" ><input  style="opacity: 0 ;height: 0; width: 0%;" type = "file" name = "file" id="upload" /> <label for="upload">Upload</label>
-             </div>
-              <button type="submit" class="btn btn--revert btn--width">Get Summary</button>
-            </form>
+          <div class="col-md-6">
+            <div class="site">
+              <h2 class="site__subtitle">
+                Upload your text file here to get the summary
+              </h2>
+              <div class="site__box-link">
+                <form
+                  action="/offline"
+                  method="post"
+                  enctype="multipart/form-data"
+                  onclick="load()"
+                >
+                  <div class="btn btn--width">
+                    <input
+                      style="opacity: 0; height: 0; width: 0%"
+                      type="file"
+                      name="file"
+                      id="upload"
+                    />
+                    <label for="upload">Upload</label>
+                  </div>
+                  <button type="submit" class="btn btn--revert btn--width">
+                    Get Summary
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -138,13 +180,24 @@
     </div>
   </div> -->
 
+  <div id="pulse-wrapper">
+    <div id="pulse">
+      <span></span>
+      <!-- Wave 1 -->
+      <span></span>
+      <!-- Wave 2 -->
+    </div>
+  </div>
+
+ 
+
   <footer class="footer navbar-fixed-bottom">
     <div class="container">
       <div class="row">
         <div class="col-md-2 col-xs-6">
-            <div class="header_img">
-                <div class="search__icon"></div>
-            </div>
+          <div class="header_img">
+            <div class="search__icon"></div>
+          </div>
           <h1 class="footer__title">
             In a <span class="footer__light">Nutshell</span>
           </h1>
@@ -178,4 +231,17 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    function load() {
+      console.log("load");
+      console.log(new Date().getTime());
+      // console.log(document.querySelector(".loaded"));
+      document.querySelector(".loaded").style.visibility = "hidden";
+      setTimeout(() => {
+        console.log(new Date().getTime());
+        document.querySelector("#pulse-wrapper").style.visibility = "visible";
+      }, 500);
+    }
+  </script>
 </body>
