@@ -1,6 +1,14 @@
 # In A Nutshell
 
-### KADAMM
+### Team Name: KADAMM
+
+## Team members
+* Aayush Shah    - ajshah_b19@it.vjti.ac.in
+* Abhishek Joshi - abjoshi_b19@ce.vjti.ac.in
+* Dhruvi Doshi   - drdoshi_b19@ce.vjti.ac.in
+* Kushal Shah    - kashah_b19@ce.vjti.ac.in
+* Mann Doshi     - madoshi_b19@it.vjti.ac.in
+* Meet Parekh    - mmparekh_b19@it.vjti.ac.in
 
 ## Description
 
@@ -20,9 +28,10 @@ Tools and technologies that were learnt and used in the project.
 2. HTML
 3. CSS
 4. JavaScript
-5. Flask
-6. PyTorch
-7. transformers
+5. Beautiful Soup
+6. Flask
+7. PyTorch
+8. transformers
 
 ## Project Setup
 
@@ -89,4 +98,10 @@ python3 app.py
 
 ## Screenshots
 
-![Screenshot alt text](https://img.freepik.com/free-photo/blue-purple-technology-circuit_73426-205.jpg "Here is a screenshot")
+![Home Page](./assets/home.jpeg)
+
+![User Enters Query in Search Box](./assets/home_query.jpeg)
+
+![Final Summary Output 1](./assets/summary1.jpeg)
+
+![Final Summary Output 1](./assets/summary2.jpeg)
