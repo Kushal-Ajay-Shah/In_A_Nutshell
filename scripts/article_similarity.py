@@ -15,7 +15,6 @@ def get_words_from_data(text):
       
     return word_list
 
-
 # counts frequency of each word
 # returns a dictionary which maps
 # the words to  their frequency.
@@ -33,7 +32,6 @@ def count_frequency(word_list):
               
     return D
 
-
 def word_frequencies(data): 
       
     word_list = get_words_from_data(data)
@@ -43,8 +41,6 @@ def word_frequencies(data):
     # print(len(freq_mapping), "distinct words")
   
     return freq_mapping
-
-
 
 # returns the dot product of two documents
 def dotProduct(D1, D2): 
@@ -59,9 +55,12 @@ def dotProduct(D1, D2):
 
 def vector_angle(D1, D2): 
     numerator = dotProduct(D1, D2)
+    
+    # print("D1: ",D1)
+    # print("D2: ",D2)
     denominator = math.sqrt(dotProduct(D1, D1)*dotProduct(D2, D2))
       
-    return math.acos(numerator / denominator)
+    return numerator / denominator
 
 def documentSimilarity(data_1, data_2):
       
