@@ -17,6 +17,10 @@ body {
   align-content: center;
   padding: 6rem;
   background-color: #f5f5f5;
+  /* background-image: url("https://image.ibb.co/de6JzG/bitmap_1_1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
   font-family: "Inter", sans-serif;
 }
 @media (max-width: 60em) {
@@ -118,7 +122,7 @@ body {
   height: initial;
   width: initial;
   margin-bottom: 0;
-  display: none;
+  /* display: none; */
   cursor: pointer;
 }
 
@@ -142,8 +146,10 @@ body {
   margin-right: 5px;
 }
 
+
+
 .form-group input:checked + label:after {
-  content: "";
+  content: "\2714";
   display: block;
   position: absolute;
   top: 2px;
@@ -156,8 +162,13 @@ body {
 }
 
 input{
-  height: 100cm;
-  width: 100cm;
+  height: 30px;
+  width: 30px;
+  outline: 0;
+  border: 2px solid #3363ff;
+
+
+
 }
 
 #submit{

@@ -43,7 +43,7 @@ def NewsApi(keyword='',searchIn='',sources='',fromdate='',todate='',language='',
     res = requests.get(main_url, params=query_params).json()
     # print(res.json())
 
-    
+    print(res)
     count = 0
     for article in res['articles'] :
         if count ==5 :
