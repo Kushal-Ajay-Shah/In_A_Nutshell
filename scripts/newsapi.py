@@ -1,4 +1,5 @@
 # APIKEY=a0c4342d94b44c2fad2461841bcc97ff
+#APIKEY2=42df420094f148aea3f3b301761da31b
 
 
 # keyword : search string
@@ -35,7 +36,7 @@ def NewsApi(keyword='',searchIn='',sources='',fromdate='',todate='',language='',
         'to' : todate,
         'language' : language,
         'sortBy' : sortBy,
-        'apiKey' : 'a0c4342d94b44c2fad2461841bcc97ff'
+        'apiKey' : '42df420094f148aea3f3b301761da31b'
     }
     
     main_url = " https://newsapi.org/v2/everything"
@@ -43,7 +44,7 @@ def NewsApi(keyword='',searchIn='',sources='',fromdate='',todate='',language='',
     res = requests.get(main_url, params=query_params).json()
     # print(res.json())
 
-    
+    print(res)
     count = 0
     for article in res['articles'] :
         if count ==5 :

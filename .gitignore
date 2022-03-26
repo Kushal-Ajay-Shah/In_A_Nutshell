@@ -1,3 +1,4 @@
 model/*
 !model/.gitkeep 
 env
+scripts/__pycache__

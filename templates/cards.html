@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../static/css/card.css" />
+
     <title>In A Nutshell </title>
     <style>
-      #pulse-wrapper {
+      #pulse-wrapper { 
         visibility: hidden;
       } 
     </style>
@@ -33,6 +34,9 @@
   ></script>
   </head>
   <body >
+
+
+
     <div class="loaded">
     <form class="grid" action = "/summarize" method="POST" >
       <button type="submit" class="card__btn" id="submit" onclick="load()" class="loaded">Get Summary</button>
@@ -49,7 +53,7 @@
             <div class="card__text">
               
               <div class="form-group" class="loaded">
-                <input type="checkbox" id={{res[i].url}} name = "my_checkbox" value = {{i}}>
+                <input type="checkbox"  id={{res[i].url}} name = "my_checkbox" value = {{i}}>
                 <label for={{res[i].url}}><button class="card__btn"><a href={{ res[i].url }}>Explore</a> <span>&rarr;</span></button></label>
               </div>           
 
