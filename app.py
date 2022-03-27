@@ -88,7 +88,7 @@ def offline() :
         text = getText(file)
         print(type(text))
         summary = getSummary(text)
-        print(summary)
+        # print(summary)
         return render_template('uploadSummary.html',summary = summary)
         # return "success"
 
