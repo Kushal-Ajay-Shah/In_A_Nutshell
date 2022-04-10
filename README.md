@@ -68,6 +68,8 @@ pip3 install -r requirements.txt
 ```
 conda install --file requirements.txt
 ```
+* For T5 model
+
 Download following files:
 [Link](https://huggingface.co/t5-base/tree/main)
 1. config.json
@@ -77,6 +79,18 @@ Download following files:
 
 Make a directory named 't5-base' inside 'model' 
 Place the downloaded files inside 't5-base' directory 
+
+* For PEGASUS 
+
+Download following files:
+[Link](https://huggingface.co/google/pegasus-xsum/tree/main)
+1. config.json
+2. pytorch_model.bin
+3. spiece.model
+4. tokenizer.json
+
+Make a directory named 'pegasus' inside 'model' 
+Place the downloaded files inside 'pegasus' directory 
 
 ## Usage
 > Run the **app.py** file

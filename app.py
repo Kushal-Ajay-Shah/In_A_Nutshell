@@ -6,7 +6,13 @@ from flask import Flask, render_template, redirect, request, url_for
 from googlesearch import search
 from transformers import RetriBertConfig
 from scripts.search import getMeResult 
-from scripts.t5_summary import getSummary
+
+# UNCOMMENT BELOW LINE FOR USING T5 MODEL FOR GENERATING SUMMARY
+# from scripts.t5_summary import getSummary
+
+# UNCOMMENT BELOW LINE FOR USING PEGASUS FOR GENERATING SUMMARY
+from scripts.pegasus_summary import getSummary
+
 from jinja2 import Template
 from scripts.newsapi import NewsApi
 from scripts.newsapi import clean
