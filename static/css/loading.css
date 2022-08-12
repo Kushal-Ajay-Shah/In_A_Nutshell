@@ -1,11 +1,4 @@
-html,
-body {
-  background: #5ac1f1;
-  background-image: url("https://image.ibb.co/de6JzG/bitmap_1_1.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+
 
 @keyframes pulse_animation {
   0% {

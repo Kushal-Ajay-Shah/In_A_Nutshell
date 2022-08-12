@@ -44,7 +44,7 @@ def getMeGoogleResult(query):
     links = list(filter(lambda x: 'linkedin' not in x,links))
     info = []
     count =0
-    for url in links[:10]:
+    for url in links[:4]:
         text, img, date, title = getInfo(url)
         res = {'url': url,'text': text, 'image':img, 'date':date, 'title': title}
         if not res['text'] == '' and not res['text'] == 'a' and not res['title'] == '':

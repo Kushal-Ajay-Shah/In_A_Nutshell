@@ -22,15 +22,9 @@
 
   <link
     rel="stylesheet"
-    href="{{ url_for('static', filename='css/loading2.css') }}"
+    href="{{ url_for('static', filename='css/loading.css') }}"
   />
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script
-    type="text/javascript"
-    src="{{ url_for('static', filename='js/loading.js') }}"
-  ></script>
-  <link rel="stylesheet" href="../static/css/card.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}" />
 
   </head>
   <body >
@@ -65,26 +59,15 @@
     </div>
     </form>
   </div>
-    <div id="pulse-wrapper">
-      <div id="pulse">
-        <span></span>
-        <!-- Wave 1 -->
-        <span></span>
-        <!-- Wave 2 -->
-      </div>
-    </div>
+  
 
-    <script>
-      function load() {
-        console.log("load");
-        console.log(new Date().getTime());
-        // console.log(document.querySelector(".loaded"));
-        document.querySelector(".loaded").style.visibility = "hidden";
-        setTimeout(() => {
-          console.log(new Date().getTime());
-          document.querySelector("#pulse-wrapper").style.visibility = "visible";
-        }, 500);
-      }
-    </script>
+  <!-- Loading Utility -->
+    {% include 'partials/loading.html' %}
+
+    <script
+    type="text/javascript"
+    src="{{ url_for('static', filename='js/loading.js') }}"
+  ></script>
+
   </body>
 </html>

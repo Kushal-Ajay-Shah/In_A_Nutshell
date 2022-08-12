@@ -3,6 +3,8 @@ from .utils.search.newsapi import NewsApi,clean
 
 
 def getSearchResult(keyword):
+    res = []
+    newsapires = []
     res = getMeGoogleResult(keyword)
     newsapires= NewsApi(keyword)
     newsapires = clean(newsapires)

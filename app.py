@@ -37,7 +37,6 @@ def summarize():
         
         checkedIndices = request.form.getlist('my_checkbox')
         finalres = getSummaryResult(checkedIndices, resl)
-        print(finalres)
 
         return render_template('summary.html', resl = finalres , reslength = len(finalres))
 
@@ -60,3 +59,12 @@ def offline() :
 if __name__ == "__main__":
     app.run()
     # app.run(debug=True)
+
+
+## Tasks ToDo:
+# - UI:
+    # [] Incase no info found? Not found page
+    # [] Mobile Responsive UI
+    # [] Cards Image size fixture
+    # [] Cards Checkbox fix
+# - Please reduce search time. Its slower than any search engine : Embedd a search engine page?

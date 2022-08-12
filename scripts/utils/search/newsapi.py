@@ -45,7 +45,7 @@ def NewsApi(keyword='',searchIn='',sources='',fromdate='',todate='',language='',
 
     count = 0
     for article in res['articles'] :
-        if count ==5 :
+        if count == 2 :
             break
         article.pop('author')
         article.pop('description')
