@@ -19,10 +19,9 @@ def getInfo(URL):
         return 'a','a','a','a'
 
 
-    print(article.title)
 
 
-# def getMeResult(searchQuery):
+# def getMeGoogleResult(searchQuery):
 #     info = []
 #     for url in search(searchQuery, tld="co.in", num=5, stop=5, pause=2):
 #         text , img, date, title = getInfo(url)
@@ -31,7 +30,7 @@ def getInfo(URL):
 #     return info
 
 
-def getMeResult(query):
+def getMeGoogleResult(query):
     URL = "https://www.google.com/search?q="
     response = requests.get(URL+query.replace(' ','+'))
     soup = BeautifulSoup(response.content, "html.parser" )

@@ -42,9 +42,7 @@ def NewsApi(keyword='',searchIn='',sources='',fromdate='',todate='',language='',
     main_url = " https://newsapi.org/v2/everything"
     # fetching data in json format
     res = requests.get(main_url, params=query_params).json()
-    # print(res.json())
 
-    print(res)
     count = 0
     for article in res['articles'] :
         if count ==5 :
@@ -58,7 +56,6 @@ def NewsApi(keyword='',searchIn='',sources='',fromdate='',todate='',language='',
         content = soup.find_all('p')
         str = ''
         counter = 0
-        # print(content.text)
         for i in content :
             if len(i.text) > 150 :
                 str += i.text
