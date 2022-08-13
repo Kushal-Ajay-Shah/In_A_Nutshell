@@ -29,6 +29,13 @@ def deEmojify(text):
                            "]+", flags = re.UNICODE)
     return regrex_pattern.sub(r'',text)
 
+def pre_process(input):
+    input = deEmojify(input)
+    input = input.replace('.', '.<eos>')
+    input = input.replace('?', '?<eos>')
+    input = input.replace('!', '!<eos>')
+    return input
+
 def post_process(output):
     final_output=""
     final_output += output[0].upper()
@@ -39,10 +46,36 @@ def post_process(output):
             final_output += output[i]
     return final_output
 
-def getSummary(input):
-    input = deEmojify(input)
-    batch = tokenizer(input, truncation=True, padding='longest', return_tensors="pt").to(device)
-    translated = model.generate(**batch)
-    output = tokenizer.batch_decode(translated, skip_special_tokens=True)
-    final_output = post_process(output)
+def get_chunks(input, max_chunk_size = 300):
+    
+    sentences = input.split('<eos>')
+    current_chunk = 0 
+    chunks = []
+    for sentence in sentences:
+        if len(chunks) == current_chunk + 1: 
+            if len(chunks[current_chunk]) + len(sentence.split(' ')) <= max_chunk_size:
+                chunks[current_chunk].extend(sentence.split(' '))
+            else:
+                current_chunk += 1
+                chunks.append(sentence.split(' '))
+        else:
+            chunks.append(sentence.split(' '))
+
+    for chunk_id in range(len(chunks)):
+        chunks[chunk_id] = ' '.join(chunks[chunk_id])
+
+    return chunks
+
+def getSummary(text):
+    text = pre_process(text)
+    chunks = get_chunks(text)
+    
+    final_output = ""
+    for input in chunks:
+        input = pre_process(input)
+        batch = tokenizer(input, truncation=True, padding='longest', return_tensors="pt").to(device)
+        translated = model.generate(**batch)
+        output = tokenizer.batch_decode(translated, skip_special_tokens=True)
+        final_output = final_output + " " + post_process(output)
+    
     return final_output
