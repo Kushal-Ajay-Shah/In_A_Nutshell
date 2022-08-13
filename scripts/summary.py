@@ -1,6 +1,11 @@
 import imp
 from .utils.summary.article_similarity import documentSimilarity
-from .utils.summary.t5_summary import getSummary
+from .utils.summary.pegasus_summary import getSummary
+# UNCOMMENT BELOW LINE FOR USING T5 MODEL FOR GENERATING SUMMARY
+# from .utils.summary.t5_summary import getSummary
+
+# UNCOMMENT BELOW LINE FOR USING PEGASUS FOR GENERATING SUMMARY
+from .utils.summary.pegasus_summary import getSummary
 
 def getSummaryResult(checkedIndices,resl):
 
