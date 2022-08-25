@@ -4,70 +4,62 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>In A Nutshell </title>
-    <style>
-      #pulse-wrapper { 
-        visibility: hidden;
-      } 
-    </style>
-    <script
-    type="text/javascript"
-    src="{{ url_for('static', filename='js/app.js') }}"
-  ></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
-    rel="stylesheet"
-  />
-
-  <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/loading.css') }}"
-  />
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}" />
-
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <title>Show cards</title>
   </head>
-  <body >
+  <body>
+    <main>
+      
+      <form action="/summarize" method="post" style="flex: 1;">
+        <nav class="navbar">
+          <div class="logo">
+            <span id="in-a">In A</span>
+            <span id="nutshell">Nutshell</span>
+          </div>
 
+          <button type="submit" class="get-summary" onclick="load()">Get Summary</button>
+        </nav>
 
+        <div class="container grid">
 
-    <div class="loaded">
-    <form class="grid" action = "/summarize" method="POST" >
-      <button type="submit" class="card__btn" id="submit" onclick="load()" class="loaded">Get Summary</button>
         {% for i in range(reslength) %}
-      <div class="grid__item" class="loaded">
-        <div class="card">
-          <img
-            class="card__img"
-            src= {{res[i].image}}
-            alt="Snowy Mountains"
-          />
-          <div class="card__content" class="loaded">
-            <div class="card__header">{{ res[i].title }}</div>
-            <div class="card__text">
-              
-              <div class="form-group" class="loaded">
-                <input type="checkbox"  id={{res[i].url}} name = "my_checkbox" value = {{i}}>
-                <label for={{res[i].url}}><button class="card__btn"><a href={{ res[i].url }}>Explore</a> <span>&rarr;</span></button></label>
-              </div>           
+          <div class="card">
+            <img class="card-img" src= {{res[i].image}} />
+            <h3 class="card-title">
+                {{ res[i].title }}
+            </h3>
+            <div class="card-footer">
+              <label for={{res[i].url}} class="">
+                <input type="checkbox" id={{res[i].url}} value = {{i}} name = "my_checkbox"></input>
+                <span class="checkbox">summary  </span>
+              </label>
 
+              <a class="card-link" href={{res[i].url}}>visit orignal article</a>
             </div>
           </div>
+          {% endfor %}
+
+
+
         </div>
-      </div>
-      {% endfor %}
-    </div>
-    </form>
-  </div>
-  
+      </form>
+      <footer>
+        <div class="col">Made with LOL in India</div>
+        <div class="col" style="flex-direction: row; justify-self: flex-end">
+          follow
+        </div>
+      </footer>
 
-  <!-- Loading Utility -->
-    {% include 'partials/loading.html' %}
 
-    <script
-    type="text/javascript"
-    src="{{ url_for('static', filename='js/loading.js') }}"
-  ></script>
+    </main>
+    <div class="splash" style="display: none;"></div>
 
+    <div class="loading">
+
+      <div class="loader1"></div>
+      <div class="loader2"></div>
+      <div class="loader3"></div>
+    </div>  
+    <script src="../static/js/script.js"></script>
   </body>
 </html>

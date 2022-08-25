@@ -4,26 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/summary.css" />
-    <title>Summary</title>
+    <!-- Title & Icon -->
+    <meta name="theme-color" content="#1885ed" />
+    <title>In a Nutshell</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
   </head>
   <body>
-    <div class="grid">
-      {% for res in resl%}
-      <div class="grid__item">
-        <div class="card">
-          <img class="card__img" src="{{res.image}}" alt="Snowy Mountains" />
-          <div class="card__content">
-            <div class="card__header">{{ res.title }}</div>
-            <hr />
-            <div class="card__text">{{ res.summary }}</div>
-            <button class="card__btn">
-              <a href="{{res.url}}">Read Full Article</a> <span>&rarr;</span>
-            </button>
+    <main>
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="logo">
+          <span id="in-a">In A</span>
+          <span id="nutshell">Nutshell</span>
+        </div>
+      </nav>
+      <div class="container">
+        <!-- <div class="summary-card"></div>
+        <div class="summary-card"></div>
+        <div class="summary-card"></div> -->
+
+        {% for res in resl%}
+        <div class="summary-card">
+          <img src={{res.image}} class="summary-image" />
+          <div class="summary-info">
+            <h2 class="summary-title">{{ res.title }}</h2>
+            <div class="summary-text">{{ res.summary }}</div>
           </div>
         </div>
+        {% endfor %}
       </div>
-      {% endfor %}
-    </div>
+
+      <footer>
+        <div class="col">Made with LOL in India</div>
+        <div class="col" style="flex-direction: row; justify-self: flex-end">
+          follow
+        </div>
+      </footer>
+    </main>
   </body>
 </html>

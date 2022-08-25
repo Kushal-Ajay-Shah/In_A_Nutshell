@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title & Icon -->
+    <meta name="theme-color" content="#1885ed" />
+    <title>In a Nutshell</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+<body>
+
+    
+    <main>
+        
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                <span id="in-a">In A</span>
+                <span id="nutshell">Nutshell</span>
+            </div>
+        </nav>
+        
+        <div class="container">  
+
+            <!-- Container Heading -->
+            <h1 class="row heading">Fast paced way to get information highlights.</h1> 
+
+            <div class="row">
+
+
+                <div class="col">
+                    <h1 class="subheading row">
+                    Search here & get summary
+                    </h1>
+                    <form class="row" method="post" action="/showArticles">
+
+                        <div class="col" style="flex: 1;">
+                            <input type="text" name="keyword" placeholder="What are you looking for ..."></input>
+                        </div>
+                        <button class="col" style="justify-self: flex-end;" onclick="load()">
+                            <img src="../static/assets/search-icon.svg" style="width: 20px; height: 20px;">
+                                
+                        </img>
+                        </button>
+                    </form>
+                </div>
+                    
+                <div class="col">
+                    <h1 class="subheading row">
+                        Upload your text file here to get summary
+                    </h1>
+                    <form class="row" action="/offline" method="post" enctype="multipart/form-data">
+                        <div class="col" id="upload-sec">
+                            <input
+                      style="opacity: 0; height: 0; width: 0%"
+                      type="file"
+                      name="file"
+                      id="upload"
+                    />
+                    <label for="upload" id="upload-label">Upload</label>
+                        </div>
+                        <button class="col" style="flex: 1;" onclick="load()">Get Summary</button>
+                    </form>               
+                </div>
+            </div> 
+        </div>
+    
+        <footer >
+                <div class="col">Made with LOL in India</div>
+                <div class="col" style="flex-direction: row;justify-self: flex-end;">
+                    follow
+                </div>
+        </footer>
+        
+    </main>
+
+    <!-- SPLASH SCREEN -->
+<div class="splash">
+    <div class="splash-element">
+            <span>I</span>
+            <span>n</span>
+            &nbsp;
+            <span>a </span>
+            &nbsp;
+            <span>N</span>
+            <span>u</span>
+            <span>t</span>
+            <span>s</span>
+            <span>h</span>
+            <span>e</span>
+            <span>l</span>
+            <span>l</span>
+        </span>
+    </div>
+</div>
+<!-- SPLASH SCREEN END -->
+
+<div class="loading">
+
+<div class="loader1"></div>
+<div class="loader2"></div>
+<div class="loader3"></div>
+</div>
+
+<script src="../static/js/script.js"></script>
+    
+</body>
+</html>
