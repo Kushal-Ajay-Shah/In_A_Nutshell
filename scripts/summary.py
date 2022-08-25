@@ -1,6 +1,6 @@
 import imp
 from .utils.summary.article_similarity import documentSimilarity
-from .utils.summary.pegasus_summary import getSummary
+
 # UNCOMMENT BELOW LINE FOR USING T5 MODEL FOR GENERATING SUMMARY
 # from .utils.summary.t5_summary import getSummary
 
@@ -31,7 +31,12 @@ def getSummaryResult(checkedIndices,resl):
             uniqueIndices.append(index_i)
     for index in uniqueIndices:
         articleNum = index
-        resl[articleNum]['summary'] = getSummary(resl[articleNum]['text'])
+        # print(len(resl[articleNum]['text']))
+        if len(resl[articleNum]['text'])==0:
+            # print("zero")
+            resl[articleNum]['summary'] = "ARTICLE EMPTY"
+        else:    
+            resl[articleNum]['summary'] = getSummary(resl[articleNum]['text'])
         finalres.append(resl[articleNum])
 
     return finalres
