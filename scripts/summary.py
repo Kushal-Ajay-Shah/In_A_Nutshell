@@ -34,8 +34,9 @@ def getSummaryResult(checkedIndices,resl):
         # print(len(resl[articleNum]['text']))
         if len(resl[articleNum]['text'])==0:
             # print("zero")
-            return "ARTICLE EMPTY"
-        resl[articleNum]['summary'] = getSummary(resl[articleNum]['text'])
+            resl[articleNum]['summary'] = "ARTICLE EMPTY"
+        else:    
+            resl[articleNum]['summary'] = getSummary(resl[articleNum]['text'])
         finalres.append(resl[articleNum])
 
     return finalres
