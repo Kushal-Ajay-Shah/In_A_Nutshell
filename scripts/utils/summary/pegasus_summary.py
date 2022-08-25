@@ -66,6 +66,7 @@ def get_chunks(input, max_chunk_size = 300):
     return chunks
 
 def getSummary(text):
+    # print(text)
     text = pre_process(text)
     chunks = get_chunks(text)
     
