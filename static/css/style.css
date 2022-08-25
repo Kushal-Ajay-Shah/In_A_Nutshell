@@ -109,6 +109,7 @@ main{
     justify-content: space-between;
 }
 .logo{
+    text-decoration: none;
     padding-left: 4rem;
     font-size: xx-large;
     font-family: 'Times New Roman', Times, serif;

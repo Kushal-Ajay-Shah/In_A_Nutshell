@@ -5,7 +5,8 @@ from .utils.summary.article_similarity import documentSimilarity
 # from .utils.summary.t5_summary import getSummary
 
 # UNCOMMENT BELOW LINE FOR USING PEGASUS FOR GENERATING SUMMARY
-from .utils.summary.t5_summary import getSummary
+# from .utils.summary.t5_summary import getSummary
+from .utils.summary.pegasus_summary import getSummary
 
 def getSummaryResult(checkedIndices,resl):
 
@@ -36,7 +37,7 @@ def getSummaryResult(checkedIndices,resl):
             # print("zero")
             resl[articleNum]['summary'] = "ARTICLE EMPTY"
         else:    
-            resl[articleNum]['summary'] = getSummary(resl[articleNum]['text'])
+            resl[articleNum]['summary'] = getSummary(resl[articleNum]['text']).capitalize()
         finalres.append(resl[articleNum])
 
     return finalres

@@ -23,15 +23,11 @@
         <div class="summary-card"></div>
         <div class="summary-card"></div> -->
 
-        {% for res in resl%}
         <div class="summary-card">
-          <img src={{res.image}} class="summary-image" />
           <div class="summary-info">
-            <h2 class="summary-title">{{ res.title }}</h2>
-            <div class="summary-text">{{ res.summary }}</div>
+            <div class="summary-text">{{ summary }}</div>
           </div>
         </div>
-        {% endfor %}
       </div>
 
       <footer>
