@@ -36,7 +36,7 @@ def NewsApi(keyword='',searchIn='',sources='',fromdate='',todate='',language='',
         'to' : todate,
         'language' : language,
         'sortBy' : sortBy,
-        'apiKey' : '181835a29ee74ec492a770c2aa0442a7'
+        'apiKey' : '18a222a6aad64d3182098c8bc5f3fed1'
     }
     
     main_url = " https://newsapi.org/v2/everything"

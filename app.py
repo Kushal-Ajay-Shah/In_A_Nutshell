@@ -46,9 +46,9 @@ def summarize():
         
         finalres = []
         checkedIndices = request.form.getlist('my_checkbox')
-        # finalres = getSummaryResult(checkedIndices, resl)
+        finalres = getSummaryResult(checkedIndices, resl)
         print(keyword)
-        tweetText,isVerified = getTweetsText(keyword)
+        tweetText,isVerified = getTweetsText(keyword,50)
         print(isVerified)
         if tweetText: 
             tweetSummary = getSummary(tweetText)
@@ -92,8 +92,8 @@ def tweetSum(trend):
 
      
 if __name__ == "__main__":
-    # app.run()
-    app.run(debug=True)
+    app.run()
+    # app.run(debug=True)
 
 
 ## Tasks ToDo:
