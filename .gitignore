@@ -4,3 +4,6 @@ env
 scripts/__pycache__
 scripts/utils/__pycache__/
 scripts/utils/summary/__pycache__/
+scripts/utils/search/__pycache__/newsapi.cpython-39.pyc
+scripts/utils/search/__pycache__/search.cpython-39.pyc
+scripts/utils/search/__pycache__/newsapi.cpython-39.pyc
