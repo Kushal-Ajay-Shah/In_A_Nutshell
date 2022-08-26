@@ -29,6 +29,11 @@
           <img src={{res.image}} class="summary-image" />
           {% endif %}
           <div class="summary-info">
+            {% if notVerified %}
+            <div>
+              No tweets from verified users found :(
+            </div>
+            {% endif %}
             <h2 class="summary-title">{{ res.title }}</h2>
             <div class="summary-text">{{ res.summary }}</div>
           </div>

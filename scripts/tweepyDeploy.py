@@ -22,9 +22,13 @@ def getTweetsText(seedWord,maxTweets = 100):
     query= seedWord + filters
     response = client.search_recent_tweets(query,max_results=maxTweets)
     returnText = ""
+    isVerified = True
 
     if not response.data:
-        return 
+        response = client.search_recent_tweets(seedWord,max_results=maxTweets)
+        isVerified = False
+
+
     for value in response.data:
         
         line=value.text
@@ -53,4 +57,4 @@ def getTweetsText(seedWord,maxTweets = 100):
         # print(arrOfWords2)
         # print('='*50)
         returnText = returnText + line
-    return returnText
+    return returnText, isVerified
