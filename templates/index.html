@@ -66,6 +66,21 @@
                     </form>               
                 </div>
             </div> 
+
+            <div class="row">
+                <h2 class="heading heading2">
+                    Top Twitter Trends
+                </h2>
+            </div>
+            <ul class="row">
+
+                {% for trend in trends %}
+                <li><a href={{trend.url}}>{{trend.text}}</a> </li>
+                {% endfor %}
+                
+            </ul>
+
+
         </div>
     
         <footer >
@@ -106,6 +121,12 @@
 </div>
 
 <script src="../static/js/script.js"></script>
+<script>
+    // Uncomment 1 line below for splash screen
+    splash()
+    // Uncomment 1 line below for no splash screen
+    // document.getElementsByClassName("splash")[0].style.display = "none";
+</script>
     
 </body>
 </html>

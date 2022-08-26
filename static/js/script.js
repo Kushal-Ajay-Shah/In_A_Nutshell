@@ -25,10 +25,7 @@ splash = ()=>{
     },15*speed);
 }
 
-// Uncomment 1 line below for splash screen
-// splash()
-// Uncomment 1 line below for no splash screen
-document.getElementsByClassName("splash")[0].style.display = "none";
+
 
 
 

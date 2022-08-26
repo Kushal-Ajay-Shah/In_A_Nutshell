@@ -160,7 +160,8 @@ main{
     /* background-color: blue; */
     display: flex;
     flex-direction: row;
-    padding: 10px;
+    flex-wrap: wrap;
+    padding-top: 10px;
     justify-content: center;
 
 }
@@ -181,10 +182,44 @@ main{
     color: #1f4467;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.heading2{
+    font-size: 2rem;
+    text-decoration: underline #1f4467 2px;
+}
 .subheading{
     font-weight: 100;
 
 }
+
+
+/* ------------------------------------------------------------------------------------ */
+/* Twitter UI */
+/* ------------------------------------------------------------------------------------ */
+.row li{
+    padding: 0.2rem 0.5rem;
+    margin-left: 2rem;
+    list-style: none;
+    font-size: x-large;
+    background-color: lightblue;
+    box-shadow: 3px 3px 7px rgb(86, 149, 169);
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+.row li a{
+    color: black;
+    text-decoration: none;
+    
+}
+.row li:hover{
+    background-color: rgb(203, 242, 255);
+    box-shadow: 6px 6px 7px rgb(86, 149, 169);
+}
+ul{
+    margin-top: 0;
+    padding-top: 0;
+}
+
+
 /* ------------------------------------------------------------------------------------ */
 /* Footer CONTAINER */
 /* ------------------------------------------------------------------------------------ */

@@ -27,9 +27,14 @@ def get50Trends(woeid = 23424848):
     for value in trends:
         for trend in value['trends']:
             # print(trend['name'])
-
-            returnList.append(trend['name'])
+            text_encode = trend['name'].encode(encoding="ascii", errors="ignore")
+            # decoding the text
+            text_decode = text_encode.decode()
+            if(text_decode.strip()!=""):
+                returnList.append({'text':text_decode, 'url':'/getTweetSummary/'+text_decode.replace(" ","%20")})
+            # returnList.append(trend['name'])
+                
+            
     return returnList
-    # print(returnList)
-
-print(get50Trends())
+    
+# print(get50Trends())
