@@ -1,8 +1,29 @@
+import re
 import docx
 import io
 import PyPDF2
-
 ALLOWED_EXTENSIONS = {'txt', 'pdf','docx'}
+
+
+
+#**********************
+def get_ascii(text) :
+    return  ''.join([i if ord(i) < 128 else '' for i in text])
+    #  return unidecode(unicode(text, encoding = "utf-8"))
+
+
+def check_ascii(text) :
+    return text.isascii()
+
+
+def remove_chars(text) :
+    newlabel = re.sub('[^A-Za-z0-9\.\!\?\"\,\'\:\;\-\&]+', ' ', text)
+    print(newlabel)
+    return newlabel
+#*********************
+
+
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -21,9 +42,14 @@ def getPdfText(file) :
     pageObj = pdfReader.getPage(0) 
     return pageObj.extractText()
 
+
 def getTxtText(file) : 
     contents = file.read()
-    return contents.decode("utf-8") 
+    print(contents)
+    text = get_ascii(contents.decode("utf-8"))
+    newtext = remove_chars(text)
+    print(newtext)
+    return newtext 
     
 
 def getText(file):
