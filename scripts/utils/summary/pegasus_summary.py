@@ -78,4 +78,6 @@ def getSummary(text):
         output = tokenizer.batch_decode(translated, skip_special_tokens=True)
         final_output = final_output + " " + post_process(output)
     
+    x=final_output.lower()
+    final_output= '. '.join(map(lambda s: s.strip().capitalize(), x.split('.')))
     return final_output
