@@ -22,17 +22,21 @@
         <!-- <div class="summary-card"></div>
         <div class="summary-card"></div>
         <div class="summary-card"></div> -->
-        <h1 class="row heading">{{title}}</h1>
+
+        {% for summary in summaries %}
 
         <div class="summary-card">
           <div class="summary-info">
-            <div class="summary-text">{{ summary }}</div>
+            <h2 class="summary-title">{{ summary.title }}</h2>
+            <div class="summary-text">{{ summary.summary }}</div>
           </div>
         </div>
+        {% endfor %}
       </div>
+    
 
       <footer>
-        <div class="col">Made with LOL in India</div>
+        <div class="col">Made with &hearts; in India</div>
         <div class="col" style="flex-direction: row; justify-self: flex-end">
           follow
         </div>

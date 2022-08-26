@@ -42,7 +42,7 @@ load = () => {
 // Search Anim
 // --------------------------------------------------------
 function searchAnim(){
-
+    
     document.getElementById("searchAnim").textContent = "Search";
     inpultHolder = document.getElementById("searchInput");
     inpultHolder.setAttribute('id','search');
@@ -55,5 +55,34 @@ upload_input.addEventListener("change",()=>{
         document.getElementById("upload-sec").style.backgroundColor = "#1f4467";
         document.getElementById("upload-sec").style.color = "white";
         document.getElementById("upload-label").innerText = "Uploaded ✓";
+
+        document.getElementById("upload-submit").disabled = false;
     }
 });
+
+// --------------------------------------------------------
+// Form Validation
+// --------------------------------------------------------
+function validateForm1() {
+    var x = document.forms["searchForm"]["keyword"].value;
+    if (x == "") {
+        document.getElementById("searchInput").style.boxShadow = "0 0 2px red";
+        document.getElementsByClassName("loading")[0].style.display = "none";
+        document.getElementById("searchInput").style.border = "1px red solid";
+      return false;
+    }
+    document.getElementById("searchInput").style.boxShadow = "0";
+    document.getElementById("searchInput").style.border = "1px #1f4467 solid";
+    
+  }
+function validateForm2() {
+    var x = document.forms["uploadForm"]["file"].value;
+    if (x) {
+      return true;
+    }
+    document.getElementById("upload-sec").style.backgroundColor = red;
+    document.getElementById("upload-sec").style.color = "white";
+    document.getElementById("upload-label").innerText = "Select a file first";
+
+    return false;
+  }

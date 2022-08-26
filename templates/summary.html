@@ -25,7 +25,9 @@
 
         {% for res in resl%}
         <div class="summary-card">
+          {% if res.image %}
           <img src={{res.image}} class="summary-image" />
+          {% endif %}
           <div class="summary-info">
             <h2 class="summary-title">{{ res.title }}</h2>
             <div class="summary-text">{{ res.summary }}</div>
@@ -35,7 +37,7 @@
       </div>
 
       <footer>
-        <div class="col">Made with LOL in India</div>
+        <div class="col">Made with &hearts; in India</div>
         <div class="col" style="flex-direction: row; justify-self: flex-end">
           follow
         </div>

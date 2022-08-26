@@ -35,9 +35,9 @@
                     <h1 class="subheading row">
                     Search here & get summary
                     </h1>
-                    <form class="row" method="post" action="/showArticles">
+                    <form class="row" name="searchForm" method="post" action="/showArticles" onsubmit="return validateForm1()">
 
-                        <div class="col" style="flex: 1;">
+                        <div class="col" style="flex: 1;" id = "searchInput">
                             <input type="text" name="keyword" placeholder="What are you looking for ..."></input>
                         </div>
                         <button class="col" style="justify-self: flex-end;" onclick="load()">
@@ -52,22 +52,24 @@
                     <h1 class="subheading row">
                         Upload your text file here to get summary
                     </h1>
-                    <form class="row" action="/offline" method="post" enctype="multipart/form-data">
+                    <form class="row" action="/offline" method="post" enctype="multipart/form-data" name="uploadForm">
                         <div class="col" id="upload-sec">
                             <input
                       style="opacity: 0; height: 0; width: 0%"
                       type="file"
-                      name="file"
+                      name="file[]"
                       id="upload"
+                      accept=".txt , .docx"
+                      multiple
                     />
                     <label for="upload" id="upload-label">Upload</label>
                         </div>
-                        <button class="col" style="flex: 1;" onclick="load()">Get Summary</button>
+                        <button class="col" style="flex: 1;" onclick="load()" id="upload-submit" disabled>Get Summary</button>
                     </form>               
                 </div>
             </div> 
 
-            <div class="row">
+            <!-- <div class="row">
                 <h2 class="heading heading2">
                     Top Twitter Trends
                 </h2>
@@ -77,14 +79,13 @@
                 {% for trend in trends %}
                 <li><a href={{trend.url}}>{{trend.text}}</a> </li>
                 {% endfor %}
-                
-            </ul>
+            </ul> -->
 
 
         </div>
     
         <footer >
-                <div class="col">Made with LOL in India</div>
+                <div class="col">Made with &hearts; in India</div>
                 <div class="col" style="flex-direction: row;justify-self: flex-end;">
                     follow
                 </div>
@@ -123,9 +124,9 @@
 <script src="../static/js/script.js"></script>
 <script>
     // Uncomment 1 line below for splash screen
-    splash()
+    // splash()
     // Uncomment 1 line below for no splash screen
-    // document.getElementsByClassName("splash")[0].style.display = "none";
+    document.getElementsByClassName("splash")[0].style.display = "none";
 </script>
     
 </body>

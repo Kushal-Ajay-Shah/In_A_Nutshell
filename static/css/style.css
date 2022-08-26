@@ -449,3 +449,18 @@ label input:checked ~ .checkbox{
 
     background-color: #6c78ab;
 }
+#upload-submit{
+    background-color: lightblue;
+    transition: 0.5s;
+}
+#upload-submit:hover{
+    background-color: #6c78ab;
+    transition: 0.5s;
+}
+#upload-submit:disabled{
+    background-color: transparent;
+    cursor: no-drop;
+}
+#upload-submit:disabled:hover{
+    color: #6c78ab ;
+}
